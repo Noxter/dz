@@ -1,0 +1,41 @@
+<?php
+    header('Content-type: text/html; charset=utf-8');
+    error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE); // TODO: fix errors
+    ini_set('display_errors', 1);
+
+    echo 'Создать массив $date с пятью элементами';
+echo "<br>";
+    echo 'С помощью генератора случайных чисел забить массив $date юниксовыми метками';
+echo "<br>";
+    $date = array(rand(1,time()),rand(1,time()),rand(1,time()),rand(1,time()),rand(1,time()));
+    print_r ($date);
+echo "<br>";
+echo "<br>";
+    echo 'Вывести на экран значение наименьшего дня и наибольшего месяца в массиве';
+echo "<br>";
+    echo 'Наименьший день - ' .min($date);
+echo "<br>";
+    echo 'Наибольший месяц - ' .max($date);
+echo "<br>";
+echo "<br>";
+    echo 'Отсортировать массив по возрастанию дат';
+echo "<br>";
+    sort($date);
+    print_r($date);
+echo "<br>";
+echo "<br>";
+    echo 'Извлечь последний элемент массива в новую переменную $selected';
+echo "<br>";
+    $selected = array_pop($date);
+    echo $selected;
+echo "<br>";
+echo "<br>";    
+    echo 'С помощью функции date() вывести $selected на экран в формате "дд.мм.ГГ ЧЧ:ММ:СС"';
+echo "<br>";
+    echo date('d.m.y H:i:s',$selected);
+echo "<br>";
+echo "<br>";
+    echo 'Выставить часовой пояс Нью-Йорка, и сделать вывод снова, что бы проверить, что часовой пояс изменился правильно';
+echo "<br>";
+    date_default_timezone_set('America/New_York');
+    echo date('d.m.y H:i:s',$selected);
